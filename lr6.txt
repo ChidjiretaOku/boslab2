@@ -1,0 +1,16 @@
+999  ls -l /dev/sda{,[123]}
+ 1000  lsblk --list
+ 1002  cat /proc/diskstats 
+ 1003  cat /proc/devices 
+ 1004  sudo dd if=/dev/zero of=./fs.img bs=1M count=10
+ 1010  sudo losetup --find --show ./fs.img
+ 1011  sudo losetup --list
+ 1012  sudo mkfs -t ext4 /dev/loop0
+ 1015  sudo blkid /dev/loop0
+ 1016  sudo mount /dev/loop0 /mnt
+ 1017  mount | grep /mnt
+ 1021  df -h /mnt
+ 1024  sudo umount /dev/loop0
+ 1027  sudo tune2fs -l /dev/loop0
+ 1028  sudo losetup --detach /dev/loop0
+ 1030  sudo losetup --list

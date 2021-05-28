@@ -1,0 +1,60 @@
+  1085  ldd /bin/ls | grep selinux
+  1086  ls -l /etc/selinux
+  1087  ls -l /etc/selinux/targeted/
+  1088  id -Z
+  1089  ls -Z /etc/passwd /etc/group /etc/shadow
+  1090  ls -Z /etc/login.defs /etc/sudoers
+  1091  ls -Z /usr/bin/passwd
+  1092  ls -Z /usr/sbin/useradd
+  1093  getfattr -n security.selinux /etc/passwd
+  1094  ps Zaux
+  1095  ls /proc/$$/attr
+  1096  ps Z $(pgrep passwd)
+  1097  sudo netstat -tnlpZ
+  1098  sestatus
+  1099  getenforce
+  1100  cat /sys/fs/selinux/enforce
+  1101  nano /etc/selinux/config
+  1102  sudo nano /etc/selinux/config
+  1103  getsebool -a | grep httpd
+  1104  sudo seinfo
+  1105  seinfo
+  1106  seinfo -cfile -x
+  1107  seinfo --class | grep file
+  1108  seinfo --class file -x
+  1109  seinfo --common file -x
+  1110  seinfo --class dir -x
+  1111  seinfo --class blk_file -x
+  1112  seinfo --class chr_file -x
+  1113  seinfo --class Ink_file -x
+  1114  seinfo --class lnk_file -x
+  1115  seinfo --class fifo_file -x
+  1116  seinfo --class sock_file -x
+  1117  seinfo --class filesystem -x
+  1118  grep 'httpd_.*_t' /etc/selinux/targeted/contexts/files/file_contexts
+  1119  sudo semanage fcontext -l
+  1120  sudo semanage fcontext -l | head
+  1121  ls
+  1122  touch delete_later
+  1128  cp delete_later /tmp
+  1132  cd tmp/
+  1133  ls
+  1134  ls -Z delete_later 
+  1316  chcon -t samba_share_t delete_later 
+  1317  ls -Z delete_later 
+  1318  restorecon -v delete_later 
+  1319  /sbin/restorecon -v delete_later 
+  1410  chcon -t user_tmp_t delete_later 
+  1411  ls -Z delete_later 
+  1421  rm delete_later 
+  1431  cd
+  1441  ls
+  1451  rm delete_later 
+  1461  rm mephi.service 
+  1471  sesearch -T -s httpd_t -t var_log_t
+  1148  sesearch -T -s httpd_t tmp_t
+  1149  sesearch --allow --source passwd_t --target shadow_t --class file
+  1150  sudo sesearch -A -s passwd_t -t passwd_exec_t -c file
+  1151  sesearch -A -s unconfined_t -t passwd_t -c process
+  1152  sesearch --type_trans -s unconfined_t -t passwd_exec_t
+
