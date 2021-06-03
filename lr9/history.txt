@@ -1,0 +1,98 @@
+  957  ps xaf
+  958  man ps
+  959  ps xawf -eo pid,user,cgroup,args
+  960  systemd-cgls
+  961  ls -l /usr/lib/systemd/system/
+  962  s -l /run/systemd/system/
+  963  ls -l /run/systemd/system/
+  964  ls -l /etc/systemd/system/
+  965  systemctl -t help
+  966  systemctl status
+  967  systemctl --type=service
+  968  systemctl status upower.service 
+  969  systemctl is-active auditd.service
+  970  systemctl is-enabled auditd.service
+  971  systemctl list-dependencies --after auditd.service
+  972  systemctl status ostree-remount.service 
+  973  systemctl list-dependencies --before auditd.service 
+  974  systemctl list-units --type=service
+  975  systemctl list-units --type=service -all
+  976  systemctl list-units --type=socket -all
+  977  systemctl list-unit-files --type=service
+  978  systemctl --failed --type=service
+  979  systemctl status httpd.service
+  980  systemctl start httpd.service
+  981  sudo su
+  982  systemctl get-default 
+  983  ls -l /etc/systemd/system/default.target
+  984  systemctl set-default multi-user.target
+  985  systemctl isolate multi-user.target
+  993  systemctl --no-wall rescue
+  994  systemctl isolate emergency.target 
+  995  systemctl set-default grgr
+  996  systemctl set-default graphical.target 
+  997  systemctl isolate graphical.target 
+  998  sudo su
+ 1000  hostnamectl
+ 1001  timedatectl
+ 1002  localectl 
+ 1003  loginctl 
+ 1004  loginctl show-user tigo
+ 1005  cat mephi.service 
+ 1006  vim
+ 1007  cd boslab2/
+ 1008  mkdir lr9
+ 1009  cd lr9/
+ 1010  cd ..
+ 1011  cat mephi.service 
+ 1012  mv mephi.* ./lr9/
+ 1013  ls
+ 1014  cd lr9
+ 1015  ls
+ 1016  ls -lZ mephi.service 
+ 1017  journalctl -b
+ 1018  ausearch -m avc -ts recent
+ 1019  sudo ausearch -m avc -ts recent
+ 1020  restorecon -v mephi.service 
+ 1021  sudo systemctl start mephi.service
+ 1022  sudo ls -lZ mephi.service
+ 1023  sudo journalctl -b
+ 1024  sudo journalctl -b| grep mephi
+ 1025  sudo cat mephi.service 
+ 1026  sudo ls -lZ mephi.service 
+ 1027  journalctl -b
+ 1028  journalctl -b | grep mephi
+ 1029  ausearch -m avc -ts recent
+ 1030  sudo ausearch -m avc -ts recent
+ 1031  systemctl start mephi.service 
+ 1032  journalctl -u mephi.service 
+ 1033  cat mephi.path
+ 1034  systemctl enable mephi.path
+ 1035  systemctl start mephi.path
+ 1036  touch /tmp/mephi.file
+ 1037  journalctl -f -u mephi
+ 1038  history >history.txt
+ 
+ root history:
+ 
+   32  systemctl status httpd.service
+   33  systemctl restart httpd.service
+   34  systemctl status httpd.service
+   35  systemctl stop httpd.service
+   36  systemctl enable httpd.service
+   37  systemctl status httpd.service
+   38  systemctl start httpd.service
+   39  systemctl status httpd.service
+   40  systemctl stop httpd.service
+   41  systemctl start httpd.service
+   42  systemctl status httpd.service
+   43  systemctl disable httpd.service
+   44  systemctl enable httpd.service
+   45  systemctl status httpd.service
+   46  systemctl systemctl enable httpd.service
+   47  systemctl mask httpd.service
+   48  systemctl status httpd.service
+   49  systemctl start httpd.service
+   50  systemctl unmask httpd.service
+   51  systemctl list-units --type=target
+   52  systemctl list-units --type=target --all
